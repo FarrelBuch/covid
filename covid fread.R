@@ -16,3 +16,5 @@ mydt[county == "Allegheny", new.past14.per100000 := 100000*new.past14day/pop.all
 
 ggplot(data = mydt , aes(x = date, y = new.past14.per100000)) + geom_point() + facet_wrap(vars(county))
 ggplot(data = mydt[county == "Allegheny"] , aes(x = date, y = new.past14day)) + geom_point()
+
+# something change just to change
