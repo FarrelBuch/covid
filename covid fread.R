@@ -11,4 +11,4 @@ mydt[, new.past14day:= c(rep(NA, times=14), diff(cases, lag = 14))]
 
 mydt[, ggplot( mapping = aes(x = date, y = new.past14day)) + geom_point() ]
 
-# change 2020-07-27 17:19 2020-07-27 17:24
+# change 2020-07-27 17:19 2020-07-27 17:24 2020-07-27 17:52
