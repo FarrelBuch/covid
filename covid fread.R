@@ -10,3 +10,5 @@ mydt <- mydt[county == "Allegheny"]
 mydt[, new.past14day:= c(rep(NA, times=14), diff(cases, lag = 14))]
 
 mydt[, ggplot( mapping = aes(x = date, y = new.past14day)) + geom_point() ]
+
+# just trying 2020-07-27 19:29
