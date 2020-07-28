@@ -3,6 +3,7 @@
 library(data.table)
 library(ggplot2)
 
+
 mydt <- fread(input = "https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv", select = c("date", "county", "state", "cases"), colClasses = c("date" = "Date"))
 mydt <- mydt[state == "Pennsylvania" & (county == "Allegheny" | county == "Montgomery")]
 
@@ -19,3 +20,4 @@ ggplot(data = mydt[county == "Allegheny"] , aes(x = date, y = new.past14day)) + 
 
 # something to change 2020-07-27 16:51 and again 2020-07-27 17:00
 # 2020-07-28 12:25
+# Now merged and lets see
