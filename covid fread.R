@@ -22,3 +22,4 @@ ggplot(data = mydt[county == "Allegheny"] , aes(x = date, y = new.past14day)) + 
 # 2020-07-28 12:25
 # Now merged and lets see
 # 2020-07-28 12:40
+# 2020-07-29 18:25
