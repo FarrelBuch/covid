@@ -17,7 +17,7 @@ thanksgiving <- as.IDate("2020-11-26")
 christmas <- as.IDate("2020-12-25")
 newyear <- as.IDate("2021-01-01")
 
-
+# control for different population per county so that it is all per capita
 mydt[county == "Montgomery", new.perday.per100000 := 100000*new.past14day/pop.mont/14]
 mydt[county == "Allegheny", new.perday.per100000 := 100000*new.past14day/pop.alleg/14]
 mydt[county == "Beaver", new.perday.per100000 := 100000*new.past14day/pop.beav/14]
@@ -36,4 +36,5 @@ mydt[ , .(weekdays(max(date)), max(date))]
 
 mydt[date %between% c("2020-05-15", "2020-07-15") & county == "Allegheny", .SD[which.min(new.past14day)]]
 mydt[county == "Allegheny", .SD[which.max(date)]]
+# Adam sure know his git
 
