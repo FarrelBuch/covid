@@ -34,7 +34,8 @@ mydt[ , .(weekdays(max(date)), max(date))]
 
 # when were things really good
 
-mydt[date %between% c("2020-05-15", "2020-07-15") & county == "Allegheny", .SD[which.min(new.past14day)]]
+mydt[date %between% c("2020-05-15", "2020-07-15") & county == "Allegheny", .SD[which.min(new.past14day)]] # first valley
+mydt[date %between% c("2020-07-31", "2020-12-01") & county == "Allegheny", .SD[which.min(new.past14day)]] # second valley
 mydt[county == "Allegheny", .SD[which.max(date)]]
 # Adam sure knows his git
 
