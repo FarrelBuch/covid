@@ -36,5 +36,5 @@ mydt[ , .(weekdays(max(date)), max(date))]
 
 mydt[date %between% c("2020-05-15", "2020-07-15") & county == "Allegheny", .SD[which.min(new.past14day)]]
 mydt[county == "Allegheny", .SD[which.max(date)]]
-# Adam sure know his git
+# Adam sure knows his git
 
