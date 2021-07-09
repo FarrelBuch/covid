@@ -29,8 +29,8 @@ ggplot(data = mydt , aes(x = date, y = new.perday.per100000)) + geom_point() + f
 ggplot(data = mydt[county == "Allegheny" | county == "Beaver"] , aes(x = date, y = new.perday.per100000)) + geom_point()  + facet_wrap(vars(county))
 ggplot(data = mydt[county == "Allegheny" | county == "Butler"] , aes(x = date, y = new.perday.per100000)) + geom_point()  + facet_wrap(vars(county)) + labs(title = "Average number of new cases in preceding two weeks")
 ggplot(data = mydt[county == "Allegheny"] , aes(x = date, y = new.past14day)) + geom_point()
-
-mydt[ , .(weekdays(max(date)), max(date))]
+ggplot(data = mydt[county == "Allegheny"] , aes(x = date, y = log10(new.past14day))) + geom_point()
+ggplot(data = mydt[county == "Allegheny" | county == "Butler"] , aes(x = date, y = log(new.perday.per100000))) + geom_point()  + facet_wrap(vars(county)) + labs(title = "Average number of new cases in preceding two weeks")
 
 # when were things really good
 
