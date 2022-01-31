@@ -40,5 +40,5 @@ mydt[date %between% c("2020-07-31", "2020-12-01") & county == "Allegheny", .SD[w
 mydt[county == "Allegheny", .SD[which.max(date)]]
 # Adam sure knows his git
 
-# checking out access 2022-01-30 21:23
+# checking out access 2022-01-30 22:28
 
