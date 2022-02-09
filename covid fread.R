@@ -45,3 +45,5 @@ mydt[county == "Allegheny", .SD[which.max(date)]]
 mydt[county == "Allegheny", quantile(new.past14day, probs = 0.4, na.rm = TRUE)]
 # Adam sure knows his git
 
+# checking out access 2022-01-30 22:28
+
