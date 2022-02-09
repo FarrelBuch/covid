@@ -29,14 +29,19 @@ ggplot(data = mydt , aes(x = date, y = new.perday.per100000)) + geom_point() + f
 ggplot(data = mydt[county == "Allegheny" | county == "Beaver"] , aes(x = date, y = new.perday.per100000)) + geom_point()  + facet_wrap(vars(county))
 ggplot(data = mydt[county == "Allegheny" | county == "Butler"] , aes(x = date, y = new.perday.per100000)) + geom_point()  + facet_wrap(vars(county)) + labs(title = "Average number of new cases in preceding two weeks")
 ggplot(data = mydt[county == "Allegheny"] , aes(x = date, y = new.past14day)) + geom_point()
+ggplot(data = mydt[date >= as.IDate("2021-04-30") & county == "Allegheny"] , aes(x = date, y = new.past14day)) + geom_point()
 
-ggplot(data = mydt[county == "Allegheny"] , aes(x = date, y = log10(new.past14day))) + geom_point()
 ggplot(data = mydt[county == "Allegheny" | county == "Butler"] , aes(x = date, y = log(new.perday.per100000))) + geom_point()  + facet_wrap(vars(county)) + labs(title = "Average number of new cases in preceding two weeks")
+ggplot(data = mydt[county == "Allegheny"] , aes(x = date, y = log10(new.past14day))) + geom_point() + geom_hline(yintercept = quantile(mydt[county == "Allegheny", log10(new.past14day)], .4, na.rm = TRUE)) # the best graph, Allegheny County, log10
+
+
 
 # when were things really good
 
 mydt[date %between% c("2020-05-15", "2020-07-15") & county == "Allegheny", .SD[which.min(new.past14day)]] # first valley
 mydt[date %between% c("2020-07-31", "2020-12-01") & county == "Allegheny", .SD[which.min(new.past14day)]] # second valley
 mydt[county == "Allegheny", .SD[which.max(date)]]
+
+mydt[county == "Allegheny", quantile(new.past14day, probs = 0.4, na.rm = TRUE)]
 # Adam sure knows his git
 
